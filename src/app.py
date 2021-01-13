@@ -42,13 +42,13 @@ def main():
     
 
     st.title('Comparativo do número de óbitos por doença/UF 2019-2020')
-    st.markdown("#### Este trabalho analisa os dados dos óbitos no Brasil nos anos de 2019 e 2020.")
+    st.markdown("#### Este trabalho analisa os dados dos óbitos no Brasil nos anos de 2019 e 2020..")
     opcao_0 = st.radio('Deseja visualizar o Dataframe',('Não desejo visualizar','Óbitos 2019','Óbitos 2020'))
     if opcao_0=='Óbitos 2019':
         st.dataframe(obitos_2019)
     elif opcao_0=='Óbitos 2020':
         st.dataframe(obitos_2020)
-    else:
+    else:git 
         pass
 
     opcao_1 = st.selectbox('Selecione o tipo de doença',tipo_doenca)
