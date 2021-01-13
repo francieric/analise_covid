@@ -4,9 +4,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+
 def carrega_dados(caminho):
     dados = pd.read_csv(caminho)
     return dados
+
 
 def grafico_comparativo_versao_karol(dados_2019,dados_2020,causa="todas",uf="Brasil"):
     if(uf=="Brasil"):
@@ -43,21 +45,21 @@ def main():
 
     st.title('Comparativo do número de óbitos por doença/UF 2019-2020')
     st.markdown("#### Este trabalho analisa os dados dos óbitos no Brasil nos anos de 2019 e 2020..")
-    opcao_0 = st.radio('Deseja visualizar o Dataframe',('Não desejo visualizar','Óbitos 2019','Óbitos 2020'))
-    if opcao_0=='Óbitos 2019':
-        st.dataframe(obitos_2019)
-    elif opcao_0=='Óbitos 2020':
-        st.dataframe(obitos_2020)
-    else:git 
-        pass
+    
 
-    opcao_1 = st.selectbox('Selecione o tipo de doença',tipo_doenca)
-    opcao_2 = st.selectbox('Selecione o Estado',estado)
+    opcao_1 = st.sidebar.selectbox('Selecione o tipo de doença',tipo_doenca)
+    opcao_2 = st.sidebar.selectbox('Selecione o Estado',estado)
 
     figura = grafico_comparativo_versao_karol(obitos_2019,obitos_2020,opcao_1,uf=opcao_2)
 
     st.pyplot(figura)
-   
+    opcao_0 = st.sidebar.radio('Deseja visualizar o Dataframe',('Não desejo visualizar','Óbitos 2019','Óbitos 2020'))
+    if opcao_0=='Óbitos 2019':
+        st.dataframe(obitos_2019)
+    elif opcao_0=='Óbitos 2020':
+        st.dataframe(obitos_2020)
+    else:
+        pass
     
 
 if __name__ == "__main__":
